@@ -1,10 +1,10 @@
-@each $alignement in "left", "center", "right", "justify" {
+@each $alignment in "left", "center", "right", "justify" {
   $selectors: ();
   @each $breakpoint in "xs", "sm", "md", "lg" {
-    $selectors: append($selectors, unquote('.text-#{$alignement}-not-#{$breakpoint}'), 'comma');
+    $selectors: append($selectors, unquote('.text-#{$alignment}-not-#{$breakpoint}'), 'comma');
   }
   #{$selectors} {
-    text-align: #{$alignement};
+    text-align: #{$alignment};
   }
 }
 @each $breakpoint in "xs", "sm", "md", "lg" {
@@ -23,10 +23,10 @@
   }
   @media #{$media-query} {
     $selectors: ();
-    @each $alignement in "left", "center", "right", "justify" {
-      $selectors: append($selectors, unquote('.text-#{$alignement}-not-#{$breakpoint}'), 'comma');
-      .text-#{$alignement}-#{$breakpoint} {
-        text-align: #{$alignement};
+    @each $alignment in "left", "center", "right", "justify" {
+      $selectors: append($selectors, unquote('.text-#{$alignment}-not-#{$breakpoint}'), 'comma');
+      .text-#{$alignment}-#{$breakpoint} {
+        text-align: #{$alignment};
       }
     }
     #{$selectors} {

@@ -1,0 +1,36 @@
+@each $alignement in "left", "center", "right", "justify" {
+  $selectors: ();
+  @each $breakpoint in "xs", "sm", "md", "lg" {
+    $selectors: append($selectors, unquote('.text-#{$alignement}-not-#{$breakpoint}'), 'comma');
+  }
+  #{$selectors} {
+    text-align: #{$alignement};
+  }
+}
+@each $breakpoint in "xs", "sm", "md", "lg" {
+  $media-query: ();
+  @if $breakpoint == "xs" {
+    $media-query: unquote('(max-width: 767px)');
+  }
+  @else if $breakpoint == "sm" {
+    $media-query: unquote('(min-width: 768px) and (max-width: 991px)');
+  }
+  @else if $breakpoint == "md" {
+    $media-query: unquote('(min-width: 992px) and (max-width: 1199px)');
+  }
+  @else if $breakpoint == "lg" {
+    $media-query: unquote('(min-width: 1200px)');
+  }
+  @media #{$media-query} {
+    $selectors: ();
+    @each $alignement in "left", "center", "right", "justify" {
+      $selectors: append($selectors, unquote('.text-#{$alignement}-not-#{$breakpoint}'), 'comma');
+      .text-#{$alignement}-#{$breakpoint} {
+        text-align: #{$alignement};
+      }
+    }
+    #{$selectors} {
+      text-align: inherit;
+    }
+  }
+}

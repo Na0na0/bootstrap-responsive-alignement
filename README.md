@@ -1,6 +1,6 @@
 # bootstrap-responsive-alignment
 
-A Sass extension for bootstrap to implement responsive alignment.
+A Sass extension for bootstrap to implement responsive text alignment.
 This is my first attempt at writing actual sass code, I know it's ugly but I'll try to maintain the code and make it an actual extension.
 
 ## Installation
